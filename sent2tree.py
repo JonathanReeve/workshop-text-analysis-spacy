@@ -17,11 +17,12 @@ class sentenceTree():
         return False
 
     def sentToDict(self, node): 
-        if len(list(node.children)) == 0: 
-            return node.string.strip()
-        root = node.string.strip()
         children = [child for child in node.children 
-                   if not self.isPunct(child.string.strip())]
+                   if self.isPunct(child.string.strip()) == False # ignore punctuation
+                   and child.tag_ != 'SP'] #ignore spaces and newlines
+        root = node.string.strip()
+        if len(children) == 0: 
+            return node.string.strip()
         return {node.string.strip(): [self.sentToDict(child) 
                                       for child in children]}
 
