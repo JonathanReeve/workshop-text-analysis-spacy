@@ -1,0 +1,12 @@
+name: spacy-tutorial
+channels:
+  - conda-forge
+  - etetoolkit
+  - defaults
+dependencies:
+  - ete3
+  - ete_toolchain
+  - pandas
+  - seaborn
+  - scikit-learn
+  - spacy
